@@ -18,21 +18,18 @@ fi
 
 compile () {
   for f in $@; do
-    if [ "${f##*.}" == "md" ]; then
 
 
-      echo $PANDOCCMD /gitfolder/$f -o /cgitfolder/${f%.*}.pdf
+      echo $PANDOCCMD $f -o build/${f%.*}.pdf
       mkdir -p ./build/${f%/*}
-
       $PANDOCCMD $f -o ./build/${f%.*}.pdf
-    fi
   done
 }
 
 
 
 if [ ! -d "/build" ]; then
-  echo "pandoc.sh /cgitgolder not found, generating"
+  echo "pandoc.sh /build not found, generating"
   mkdir /build
 fi
 
