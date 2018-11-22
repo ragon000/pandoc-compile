@@ -16,5 +16,4 @@ COPY pandoc.sh ./
 # RUN npm install --only=production
 
 # Bundle app source
-COPY . .
 CMD [ "./start.sh" ]
