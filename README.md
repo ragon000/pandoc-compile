@@ -1,7 +1,7 @@
 # pandoc-compile
 
 `pandoc-compile` is a program that automatically compiles all `.md` files 
-in a folder into another folder repo as PDF.
+in a folder into another folder as PDF.
 It's intended use is to generate gitlab-ci artifacts
 
 ## Docker usage
