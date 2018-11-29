@@ -1,9 +1,7 @@
-FROM alpine
+FROM archlinux/base
 
 
-RUN apk add texlive-full git texlive-xetex texlive-luatex
-RUN wget https://github.com/jgm/pandoc/releases/download/2.3.1/pandoc-2.3.1-linux.tar.gz
-RUN tar xvzf pandoc-2.3.1-linux.tar.gz --strip-components 1 -C /usr/local
+RUN pacman -S pandoc pandoc-citeproc pandoc-crossref biber texlive-lang texlive-langextra texlive-most noto-fonts noto-fonts-extra noto-fonts-emoji noto-fonts-cjk ttf-font-awesome
 RUN git clone https://gitlab.com/benfrank/kvmap.git
 RUN cd kvmap && luatex --shell-escape kvmap.dtx
 RUN mkdir -p /usr/share/texmf-dist/tex/latex
