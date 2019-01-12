@@ -5,7 +5,7 @@ echo "i am $(whoami) with id $(id -g)"
 if [ ! $PANDOCCMD ]
 then
   echo "pandoc.sh no PANDOCCMD found, setting default one"
-  PANDOCCMD="pandoc --listings --pdf-engine=xelatex"
+  PANDOCCMD="pandoc --filter pandoc-include-code --pdf-engine=lualatex"
 fi
 
 if [ $TEMPLATELINK ]
