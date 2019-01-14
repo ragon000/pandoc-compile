@@ -1,7 +1,7 @@
 FROM archlinux/base
 
 
-RUN pacman -Syu --noconfirm wget pandoc pandoc-citeproc pandoc-crossref biber texlive-lang texlive-langextra texlive-most noto-fonts noto-fonts-extra noto-fonts-emoji noto-fonts-cjk ttf-font-awesome git
+RUN pacman -Syu --noconfirm wget pandoc pandoc-citeproc pandoc-crossref biber texlive-lang texlive-langextra texlive-most git
 # Add Panddoc-include-code
 RUN pacman -S --noconfirm base-devel
 RUN useradd builduser -m
