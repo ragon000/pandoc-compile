@@ -17,13 +17,9 @@ then
 fi
 
 compile () {
-  for f in $@; do
-
-
-      echo $PANDOCCMD $f -o build/${f%.*}.pdf
-      mkdir -p ./build/${f%/*}
-      $PANDOCCMD $f -o ./build/${f%.*}.pdf
-  done
+      echo $PANDOCCMD $1 -o build/${f%.*}.pdf
+      mkdir -p ./build/${1%/*}
+      $PANDOCCMD $1 -o ./build/${1%.*}.pdf
 }
 
 
@@ -33,5 +29,5 @@ if [ ! -d "/build" ]; then
   mkdir /build
 fi
 
-
-compile $(find . -name '*.md*')
+export -f compile
+paralell compile ::: $(find . -name '*.md*')

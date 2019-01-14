@@ -6,7 +6,7 @@ RUN pacman -Syu --noconfirm wget pandoc pandoc-citeproc pandoc-crossref biber te
 RUN pacman -S --noconfirm base-devel
 RUN useradd builduser -m
 RUN su builduser -c 'git clone https://aur.archlinux.org/pandoc-include-code.git /home/builduser/pandoc-include-code'
-RUn pacman -S --noconfirm ghc
+RUN pacman -S --noconfirm ghc
 RUN su builduser -c 'cd /home/builduser/pandoc-include-code && makepkg'
 RUN ls /home/builduser/pandoc-include-code
 RUN pacman --noconfirm -U $(ls /home/builduser/pandoc-include-code/*.tar.xz)
@@ -17,6 +17,7 @@ RUN cd kvmap && luatex --shell-escape kvmap.dtx
 RUN mkdir -p /usr/share/texmf-dist/tex/latex
 RUN cp kvmap/kvmap.sty /usr/share/texmf-dist/tex/latex
 RUN texhash 
+RUN pacman -S --noconfirm parallel
 
 WORKDIR /usr/bin
 
